@@ -19,12 +19,11 @@
     <!-- Inline Critical CSS -->
     <style>
         :root {
-            --primary: #FF6B6B;
-            --secondary: #4ECDC4;
-            --accent: #FFE66D;
-            --dark: #292F36;
-            --light: #F7FFF7;
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --primary: #FF6B6B;
+        --secondary: #4ECDC4;
+        --dark: #292F36;
+        --light: #F7FFF7;
+        --transition: all 0.3s ease;
         }
 
         * {
@@ -35,10 +34,11 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
+            background: var(--light);
+            margin: 0;
             color: var(--dark);
-            overflow-x: hidden;
         }
+
 
         /* Mission Popup - Critical */
         .mission-popup {
@@ -357,19 +357,17 @@
 
         /* Services Section */
         .section {
-            padding: 120px 5%;
+            padding: 100px 5%;
+            background: white;
             text-align: center;
-            background-color: white;
-            position: relative;
         }
+
 
         .section-title {
             font-family: 'Righteous', cursive;
-            font-size: 3.2rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
             color: var(--primary);
-            position: relative;
-            display: inline-block;
+            margin-bottom: 10px;
         }
 
         .section-title::after {
@@ -384,51 +382,69 @@
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--secondary);
-            margin-bottom: 60px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-weight: 600;
+            margin-bottom: 50px;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 60px;
-            position: relative;
-            z-index: 1;
         }
 
         .service-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: var(--transition);
-            border-top: 3px solid transparent;
             position: relative;
             overflow: hidden;
         }
 
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
                 /* New clickable image style */
         .service-image {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px;
-            border-radius: 50%; /* circle shape — use 15px for rounded square */
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto;
+            border-radius: 50%;
             overflow: hidden;
+            border: 5px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+        }
+
+        .service-image:hover {
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+            border-color: var(--primary);
+            transform: scale(1.05);
         }
 
         .service-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+        }
+
+        .service-label {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(41, 47, 54, 0.6);
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 5px 0;
+            backdrop-filter: blur(5px);
         }
 
         .service-image:hover img {
@@ -437,14 +453,17 @@
 
         /* Hide details by default */
         .service-details {
-            display: none;
-            text-align: center;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.5s ease;
         }
 
         /* Show details on active */
         .service-card.active .service-details {
-            display: block;
-            animation: fadeInUp 0.4s ease;
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 20px;
         }
 
         @keyframes fadeInUp {
@@ -486,23 +505,21 @@
 
         .service-title {
             font-family: 'Righteous', cursive;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .service-price {
+            font-weight: bold;
             color: var(--primary);
-            font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .service-card p {
             font-size: 1rem;
-            line-height: 1.7;
             color: #555;
         }
 
@@ -663,7 +680,7 @@
             .mission-content h2 { font-size: 1.8rem; }
             .mission-content p { font-size: 1rem; }
             .hero-content h1 { font-size: 2.2rem; }
-            .section-title { font-size: 2.2rem; }
+            .section-title { font-size: 2rem; }
             .services-grid { grid-template-columns: 1fr; }
             .service-card { padding: 30px 25px; }
             .map-container { height: 350px; }
@@ -1051,11 +1068,13 @@
             });
         });
 
-        function toggleDetails(element) {
-            const card = element.closest('.service-card');
-            card.classList.toggle('active');
-        }
-
+        function toggleDetails(el) {
+      const card = el.closest('.service-card');
+      document.querySelectorAll('.service-card').forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+      card.classList.toggle('active');
+    }
     </script>
 </body>
 </html>
