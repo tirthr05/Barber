@@ -256,13 +256,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            animation: slideshow 16s infinite;
+            opacity: 0;
+            animation: fadeSlide 16s infinite;
         }
+
 
         .slide:nth-child(1) {
             background-image: url('https://img.freepik.com/free-photo/handsome-man-barbershop-shaving-beard_1303-26259.jpg?t=st=1745587991~exp=1745591591~hmac=5dcb02004c53845042786f538d126cd36bd17ae7d14bbc809969e32c9f083dfa&w=1380');
@@ -281,13 +280,15 @@
             animation-delay: 12s;
         }
 
-       @keyframes slideshow {
+        @keyframes fadeSlide {
             0% { opacity: 0; }
             8% { opacity: 1; }
             25% { opacity: 1; }
             33% { opacity: 0; }
             100% { opacity: 0; }
         }
+
+
 
         .hero-overlay {
             position: absolute;
@@ -411,6 +412,47 @@
             overflow: hidden;
         }
 
+                /* New clickable image style */
+        .service-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%; /* circle shape — use 15px for rounded square */
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Hide details by default */
+        .service-details {
+            display: none;
+            text-align: center;
+        }
+
+        /* Show details on active */
+        .service-card.active .service-details {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+
         .service-card::before {
             content: '';
             position: absolute;
@@ -440,6 +482,7 @@
             transform: rotateY(180deg);
             color: var(--secondary);
         }
+
 
         .service-title {
             font-family: 'Righteous', cursive;
@@ -672,7 +715,6 @@
                     <li><a href="#" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a></li>
                     <li><a href="#services" data-en="Services" data-fr="Services" data-ar="خدماتنا">Services</a></li>
                     <li><a href="#location" data-en="Location" data-fr="Emplacement" data-ar="الموقع">Location</a></li>
-                    <li><a href="#" data-en="Gallery" data-fr="Galerie" data-ar="معرض الصور">Gallery</a></li>
                     <li><a href="#" data-en="Contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a></li>
                 </ul>
             </nav>
@@ -709,20 +751,23 @@
             <p class="section-subtitle" data-en="Professional grooming at its finest" data-fr="Soins professionnels à leur meilleur" data-ar="عناية احترافية بأعلى مستوى">Professional grooming at its finest</p>
             
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
+                <div class="service-card interactive">
+                    <div class="service-image" onclick="toggleDetails(this)">
+                        <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Haircut">
                     </div>
-                    <h3 class="service-title">
-                        <span data-en="Haircut" data-fr="Coupe de Cheveux" data-ar="قص الشعر">Haircut</span>
-                        <span class="service-price">$20</span>
-                    </h3>
-                    <p data-en="Precision haircut tailored to your style." 
-                       data-fr="Coupe de cheveux de précision adaptée à votre style."
-                       data-ar="قص شعر دقيق مصمم حسب طلبك.">
-                        Precision haircut tailored to your style.
-                    </p>
-                </div>
+                    <div class="service-details">
+                        <h3 class="service-title">
+                            <span data-en="Haircut" data-fr="Coupe de Cheveux" data-ar="قص الشعر">Haircut</span>
+                            <span class="service-price">$20</span>
+                        </h3>
+                        <p data-en="Precision haircut tailored to your style." 
+                           data-fr="Coupe de cheveux de précision adaptée à votre style."
+                           data-ar="قص شعر دقيق مصمم حسب طلبك.">
+                            Precision haircut tailored to your style.
+                        </p>
+                    </div>
+                </div>                
+                </div>                
                 
                 <div class="service-card">
                     <div class="service-icon">
@@ -864,8 +909,7 @@
                     <a href="#" data-en="Home" data-fr="Accueil" data-ar="الرئيسية">Home</a>
                     <a href="#services" data-en="Services" data-fr="Services" data-ar="خدماتنا">Services</a>
                     <a href="#location" data-en="Location" data-fr="Emplacement" data-ar="الموقع">Location</a>
-                    <a href="#" data-en="Gallery" data-fr="Galerie" data-ar="معرض الصور">Gallery</a>
-                    <a href="#" data-en="Contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
+                    <a href="#contact" data-en="Contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
                 </div>
                 
                 <div class="footer-column">
@@ -878,10 +922,10 @@
             </div>
             
             <div class="copyright">
-                <p data-en="&copy; 2023 Piccasso 2. All Rights Reserved." 
-                   data-fr="&copy; 2023 Piccasso 2. Tous droits réservés."
-                   data-ar="&copy; 2023 بيكاسو 2. جميع الحقوق محفوظة.">
-                    &copy; 2023 Piccasso 2. All Rights Reserved.
+                <p data-en="&copy; 2025 Piccasso 2. All Rights Reserved." 
+                   data-fr="&copy; 2025 Piccasso 2. Tous droits réservés."
+                   data-ar="&copy; 2025 بيكاسو 2. جميع الحقوق محفوظة.">
+                    &copy; 2025 Piccasso 2. All Rights Reserved.
                 </p>
             </div>
         </footer>
