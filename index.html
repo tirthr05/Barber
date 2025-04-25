@@ -450,6 +450,19 @@
             border-bottom-right-radius: 10px;
         }
 
+        .service-label span {
+            display: inline-block;
+            max-width: 90%;
+            padding: 4px 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            word-break: break-word;
+            white-space: normal;
+            line-height: 1.2;
+        }
+
 
         .service-image:hover img {
             transform: scale(1.05);
@@ -766,16 +779,16 @@
             </div>
         </section>
 
-        <!-- SERVICES SECTION UPDATED -->
         <section class="section" id="services">
             <h2 class="section-title" data-en="Our Services" data-fr="Nos Services" data-ar="خدماتنا">Our Services</h2>
             <p class="section-subtitle" data-en="Professional grooming at its finest" data-fr="Soins professionnels à leur meilleur" data-ar="عناية احترافية بأعلى مستوى">Professional grooming at its finest</p>
           
             <div class="services-grid">
+              <!-- Start each card -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Haircut">
-                  <div class="service-label">Haircut</div>
+                  <div class="service-label"><span>Haircut</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title">
@@ -786,10 +799,11 @@
                 </div>
               </div>
           
+              <!-- Duplicate with proper word wrapping in label -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Beard Trim">
-                  <div class="service-label">Beard Trim</div>
+                  <div class="service-label"><span>Beard Trim</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title"><span>Beard Trim</span><span class="service-price">$15</span></h3>
@@ -800,7 +814,7 @@
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Kids Cut">
-                  <div class="service-label">Kids Cut</div>
+                  <div class="service-label"><span>Kids Cut</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title"><span>Kids Cut (15 & under)</span><span class="service-price">$15</span></h3>
@@ -811,7 +825,7 @@
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Senior Haircut">
-                  <div class="service-label">Senior Haircut</div>
+                  <div class="service-label"><span>Senior Haircut</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title"><span>Senior Haircut</span><span class="service-price">$20</span></h3>
@@ -822,7 +836,7 @@
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Wax Nose & Ears">
-                  <div class="service-label">Wax Nose & Ears</div>
+                  <div class="service-label"><span>Wax Nose & Ears</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title"><span>Wax Nose & Ears</span><span class="service-price">$5</span></h3>
@@ -833,7 +847,7 @@
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Wax Face">
-                  <div class="service-label">Wax Face</div>
+                  <div class="service-label"><span>Wax Face</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title"><span>Wax Face</span><span class="service-price">$10</span></h3>
@@ -844,7 +858,7 @@
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Threading">
-                  <div class="service-label">Threading</div>
+                  <div class="service-label"><span>Threading</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title"><span>Threading</span><span class="service-price">$5</span></h3>
@@ -855,7 +869,7 @@
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
                   <img src="https://drive.google.com/uc?export=view&id=1WH7kblEPFYlmaJLNBwVbDivRNfgRHzYl" alt="Hair & Beard">
-                  <div class="service-label">Hair & Beard</div>
+                  <div class="service-label"><span>Hair & Beard</span></div>
                 </div>
                 <div class="service-details">
                   <h3 class="service-title"><span>Hair & Beard</span><span class="service-price">$35</span></h3>
@@ -864,7 +878,6 @@
               </div>
             </div>
           </section>
-
           
         <!-- Location Section -->
         <section class="location" id="location">
