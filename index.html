@@ -264,21 +264,34 @@
 
 
         .slide:nth-child(1) {
-            background-image: url('https://img.freepik.com/free-photo/handsome-man-barbershop-shaving-beard_1303-26259.jpg?t=st=1745587991~exp=1745591591~hmac=5dcb02004c53845042786f538d126cd36bd17ae7d14bbc809969e32c9f083dfa&w=1380');
+            background-image: url('https://img.freepik.com/free-photo/young-man-barbershop-trimming-hair_1303-26254.jpg?t=st=1745613677~exp=1745617277~hmac=387033d8edda51e8cb95e5925bcb8e79347fd037275c67177d3900f0d509a3d1&w=1380');
             animation-delay: 0s;
         }
         .slide:nth-child(2) {
-            background-image: url('https://img.freepik.com/free-photo/client-doing-hair-cut-barber-shop-salon_1303-20844.jpg?t=st=1745588065~exp=1745591665~hmac=1fb88a610e6e94bb7f66d0262508d8268bf22c97b454ed5cb86da1cd5833972c&w=1380');
-            animation-delay: 4s;
+        background-image: url('https://www.milkmanaustralia.com/cdn/shop/articles/how-to-trim-beard-with-Scissors.jpg?v=1458647796');
+        animation-delay: 4s;
         }
         .slide:nth-child(3) {
-            background-image: url('https://img.freepik.com/free-photo/handsome-man-cutting-beard-barber-shop-salon_1303-20932.jpg?t=st=1745588126~exp=1745591726~hmac=4c4eebb952227422a657dec9f99f473ca51b84b8e71fc22a819488844d33cd56&w=1380');
-            animation-delay: 8s;
+        background-image: url('https://www.barberchairllc.com/wp-content/uploads/2021/05/beard-trimming-in-sarasota.png');
+        animation-delay: 8s;
         }
         .slide:nth-child(4) {
-            background-image: url('https://img.freepik.com/free-photo/bearded-african-american-hipster-guy-getting-haircut-by-old-fashioned-tattoed-professional-hairdresser-does-haircut_613910-6456.jpg?t=st=1745588222~exp=1745591822~hmac=ec2bc00c338e34a3c2e305a1fd9de861f680ea6e507fdd31a1e8b948d0babd19&w=1380');
-            animation-delay: 12s;
+        background-image: url('https://d2zdpiztbgorvt.cloudfront.net/region1/us/591297/biz_photo/953b82e0294345ee98f1102c1a862d-sirfades-tha1st-biz-photo-3ab7a36193304aef88ca55d44ed62e-booksy.jpeg?size=640x427');
+        animation-delay: 12s;
         }
+        .slide:nth-child(5) {
+        background-image: url('https://d2zdpiztbgorvt.cloudfront.net/region1/ca/809/biz_photo/5a56f87719ad49fcba0df7a2da502a-blurrymane-biz-photo-d5e000b933484d6486573d333452de-booksy.jpeg?size=640x427'); /* replace with your own */
+        animation-delay: 16s;
+        }
+        .slide:nth-child(6) {
+        background-image: url('https://t4.ftcdn.net/jpg/07/06/89/13/360_F_706891360_aqOQ8s903D2JBAzh2xfwbTfH6LgJnkug.jpg'); /* replace with your own */
+        animation-delay: 20s;
+        }
+        .slide:nth-child(7) {
+        background-image: url('https://bronx.com/wp-content/uploads/2024/08/pexels-media-7697401-1724711584323.jpeg'); /* replace with your own */
+        animation-delay: 24s;
+        }
+
 
         @keyframes fadeSlide {
             0% { opacity: 0; }
@@ -412,28 +425,37 @@
 
                 /* New clickable image style */
         .service-image {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid transparent;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+                position: relative;
+                width: 140px;
+                height: 140px;
+                margin: 0 auto;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 4px solid var(--primary); /* give subtle brand color edge */
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+                cursor: pointer;
+                background-color: #fff;
         }
 
         .service-image:hover {
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
-            border-color: var(--primary);
-            transform: scale(1.05);
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
         }
 
         .service-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            display: block;
+            transform: scale(1.01);
+            transition: transform 0.3s ease;
         }
+
+        .service-image:hover img {
+            transform: scale(1.1);
+        }
+
 
         .service-label {
             position: absolute;
@@ -766,6 +788,9 @@
                 <div class="slide"></div>
                 <div class="slide"></div>
                 <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -787,7 +812,7 @@
               <!-- Haircut -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=400&q=80" alt="Haircut">
+                  <img src="Haircut.jpg" alt="Haircut">
                   <div class="service-label"><span>Haircut</span></div>
                 </div>
                 <div class="service-details">
@@ -799,7 +824,7 @@
               <!-- Beard Trim -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1606115915090-be18fea4c5f4?auto=format&fit=crop&w=400&q=80" alt="Beard Trim">
+                  <img src="BeardTrim.jpg" alt="Beard Trim">
                   <div class="service-label"><span>Beard Trim</span></div>
                 </div>
                 <div class="service-details">
@@ -811,7 +836,7 @@
               <!-- Kids Cut -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1603302576837-37561b2ddf5a?auto=format&fit=crop&w=400&q=80" alt="Kids Cut">
+                  <img src="Kid.jpg" alt="Kids Cut">
                   <div class="service-label"><span>Kids Cut</span></div>
                 </div>
                 <div class="service-details">
@@ -823,7 +848,7 @@
               <!-- Senior Haircut -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1606272174281-99531f3b2a90?auto=format&fit=crop&w=400&q=80" alt="Senior Haircut">
+                  <img src="AdultHaircut.webp" alt="Senior Haircut">
                   <div class="service-label"><span>Senior Haircut</span></div>
                 </div>
                 <div class="service-details">
@@ -835,7 +860,7 @@
               <!-- Wax Nose & Ears -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1592878849121-980d701edb13?auto=format&fit=crop&w=400&q=80" alt="Wax Nose & Ears">
+                  <img src="Ears.jpg" alt="Wax Nose & Ears">
                   <div class="service-label"><span>Wax Nose & Ears</span></div>
                 </div>
                 <div class="service-details">
@@ -847,7 +872,7 @@
               <!-- Wax Face -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1608219959336-cd382239b3e3?auto=format&fit=crop&w=400&q=80" alt="Wax Face">
+                  <img src="waxing.jpeg" alt="Wax Face">
                   <div class="service-label"><span>Wax Face</span></div>
                 </div>
                 <div class="service-details">
@@ -859,7 +884,7 @@
               <!-- Threading -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1619678895800-f73948d0d370?auto=format&fit=crop&w=400&q=80" alt="Threading">
+                  <img src="Threading.jpg" alt="Threading">
                   <div class="service-label"><span>Threading</span></div>
                 </div>
                 <div class="service-details">
@@ -871,7 +896,7 @@
               <!-- Hair & Beard -->
               <div class="service-card">
                 <div class="service-image" onclick="toggleDetails(this)">
-                  <img src="https://images.unsplash.com/photo-1606341902034-043c3d8d10fa?auto=format&fit=crop&w=400&q=80" alt="Hair & Beard">
+                  <img src="Hair&Beard.jpg" alt="Hair & Beard">
                   <div class="service-label"><span>Hair & Beard</span></div>
                 </div>
                 <div class="service-details">
@@ -880,7 +905,17 @@
                 </div>
               </div>
             </div>
-          </section>          
+          </section>
+                    
+        <!-- Location Section -->
+        <section class="location" id="location">
+            <h2 class="section-title" data-en="Our Location" data-fr="Notre Emplacement" data-ar="موقعنا">Our Location</h2>
+            <p class="section-subtitle" data-en="Visit us in Ottawa" data-fr="Visitez-nous à Ottawa" data-ar="زورونا في أوتاوا">Visit us in Ottawa</p>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.540638761332!2d-75.69338892407058!3d45.41147197107236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05d3a9f2a03d%3A0x1c1a1b1b1b1b1b1b!2s438%20Cope%20Dr%2C%20Ottawa%2C%20ON%20K2C%203K2%2C%20Canada!5e0!3m2!1sen!2sus!4v1690838400000!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer>
