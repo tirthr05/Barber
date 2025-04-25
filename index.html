@@ -1055,6 +1055,11 @@
                 img.src = src;
             });
         });
+
+         function toggleDetails(element) {
+            const card = element.closest('.service-card');
+            card.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
